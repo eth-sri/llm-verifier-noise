@@ -1,0 +1,51 @@
+[build-system]
+requires = ["setuptools >= 61.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "llm-verifier-noise"
+version = "0.1.0"
+description = "A library for evaluating the impact of verification errors on RLVR training"
+readme = "README.md"
+requires-python = "==3.12.12"  # with 3.13, No module named 'sympy.release'
+dependencies = [
+    "anthropic>=0.57.1",
+    "black>=25.1.0",
+    "datasets>=4.0.0",
+    "docker>=7.1.0",
+    "huggingface-hub>=0.33.4",
+    "ipykernel>=6.29.5",
+    "isort>=6.0.1",
+    "langdetect>=1.0.9",
+    "math-verify[antlr4-13-2]>=0.8.0",
+    "matplotlib>=3.10.3",
+    "neptune>=1.14.0",
+    "numpy<2.0",
+    "nltk",
+    "openai>=1.90.0",
+    "pandas>=2.3.1",
+    "peft>=0.16.0",
+    "pydantic>=2.11.7",
+    "reasoning-gym>=0.1.24",
+    "seaborn>=0.13.2",
+    "strenum>=0.4.15",
+    "tensorboard>=2.19.0",
+    "together>=1.5.21",
+    "torch>=2.9",
+    "transformers>=4.53.2,<5",  # not prepared for v5
+    "trl>=0.25",  # chat_template_kwargs suppported from 0.25
+    "vllm==0.11.2",  # consider ">=" for better compatibility
+    "pre-commit>=3.0.0",  # developer only
+    "scikit-learn>=1.8",
+    "wandb>=0.24.2",
+    "weave>=0.52.26",
+    "reasoning-gym>=0.1.24",
+]
+
+[tool.setuptools.packages.find]
+where = ["./"]
+include = ["src"]
+
+[[tool.uv.index]]
+name = "pypi"
+url = "https://pypi.org/simple"

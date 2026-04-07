@@ -1,0 +1,61 @@
+model_name: "Qwen/Qwen3-1.7B-Base"
+training_type: "grpo"
+custom_name: "dsum_3_6_tri_PEMDAS"
+dataset: rgym
+dataset_args:
+  dataset_size: 50000
+  datasets:
+    decimal_chain_sum:
+      config:
+        min_terms: 3
+        max_terms: 6
+        min_digits: 3
+        max_digits: 6
+        min_decimal_places: 3
+        max_decimal_places: 6
+        allow_negation: false
+      weight: 1
+
+
+grpo_debug_log_dir: "debug_logs/dsum"
+
+pretrained_model: false
+set_seed: true
+seed: 42
+
+mixup:
+  TPR: 1.0
+  FPR: 0.0
+  strategy: targeted
+  targeted_buckets:
+    - selector: { path: "completion_full", op: "contains", token_str: "PEMDAS" }
+      FPR: 1.0
+
+training_args:
+  log_completions: true  # for debugging
+  num_train_epochs: 1
+  per_device_train_batch_size: 2
+  gradient_accumulation_steps: 32  # 2x4x32=256
+  save_strategy: "steps"
+  save_steps: 20
+  hub_strategy: "all_checkpoints"
+  logging_strategy: "steps"
+  logging_steps: 1
+  learning_rate: 5.0e-6
+  lr_scheduler_type: "constant_with_warmup"
+  bf16: True
+  optim: adafactor
+  warmup_steps: 20
+  push_to_hub: True
+  overwrite_output_dir: True
+  seed: 42
+  logging_first_step: True
+  report_to: "none"
+  ddp_find_unused_parameters: False
+  use_vllm: true
+  vllm_mode: colocate
+  vllm_gpu_memory_utilization: 0.25
+  num_generations: 4
+  vllm_max_model_length: 4096  # Set it to at least the maximum prompt length in the dataset plus max_completion_length; if omitted, it is inferred from the model config.
+  max_completion_length: 2048
+  max_steps: 500

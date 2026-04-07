@@ -1,0 +1,7 @@
+`if tools is none`
+    -> `if not tools`
+`if tools is not none`
+    -> `if tools`
+
+`if not tools is none`
+    -> `if tools`

@@ -1,0 +1,19 @@
+benchmark: rgym_decimal_chain_sum
+n_samples: 16
+temperature: 1.0
+top_p: 1.0
+additional_params:
+  categories:
+  - category: "algebra"
+    datasets:
+      - dataset: "decimal_chain_sum"
+        size: 500
+        seed: 43
+        params:
+          min_terms: 3
+          max_terms: 6
+          min_digits: 3
+          max_digits: 6
+          min_decimal_places: 3
+          max_decimal_places: 6
+          allow_negation: false

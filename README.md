@@ -42,7 +42,7 @@ uv run src/train_model.py --config <path_to_config> --override training_args.max
 
 ### Configuration Examples
 
-An example yaml can be found [here](configs/rgym/decimal_chain_sum_3_6/template.yaml).
+An example yaml files can be found [here](configs/rgym/decimal_chain_sum_3_6/).
 Most importantly, `mixup` defines the way the verifier introduces the error. For example:
 
 ```yaml

@@ -8,7 +8,7 @@ We study the impact of verification errors on Reinforcement Learning with Verifi
 
 with uv:
 
-```
+```bash
 uv venv
 source .venv/bin/activate
 uv pip install -e .
@@ -16,7 +16,7 @@ uv pip install -e .
 
 with conda:
 
-```
+```bash
 conda create -n verifier python=3.12 -y
 conda activate verifier
 
@@ -30,13 +30,13 @@ for running python commands with conda setup, replace `uv run` with `python`
 
 Run training with a config using:
 
-```
+```bash
 uv run src/train_model.py --config <path_to_config>
 ```
 
 You can optionally override config fields from CLI:
 
-```
+```bash
 uv run src/train_model.py --config <path_to_config> --override training_args.max_steps=100 mixup.FPR=0.1
 ```
 
@@ -58,7 +58,7 @@ mixup:
 ```
 
 Roughly speaking,
-- `path` supports keys provided via `items`, plus computed fields added in `Mixup._add_stats`
+- `path` supports keys provided via `items`, plus fields added in `Mixup._add_stats`
 - Rollouts are evaluated based on the `selector` and it sets per-item `TPR/FPR` (in this example FPR=1)
 - Erroneous rewards $y$ are sampled as: `P(y=1|r=1)=TPR`, `P(y=1|r=0)=FPR`
 - Items that do not match any bucket use the base (global) `TPR/FPR` values
@@ -67,12 +67,17 @@ Further, it supports more complicated error definitions such as [alternation](co
 
 For more details, please refer to [Mixup class](src/data/base.py)
 
+## Example pipeline
+
+Under `scripts` directory, we provide example scripts for reproducing our results
+Details can be found [here](scripts/README.md)
+
 
 ## Evaluation
 
 And you can evaluate your model using the evaluation script:
 
-```
+```bash
 uv run src/eval_model.py \
     --benchmarks <list_of_benchmarks> \
     --model_name <name_of_model> \
@@ -97,10 +102,12 @@ Notes:
 
 The CLI defaults are set up to expect vLLM-based evaluation on a single GPU, so you can evaluate easily with the following command:
 
-```
-benchmarks=rgym_decimal_chain_sum_3_6_3_6_3_6  # this reads `configs/benchmarks/rgym/decimal_chain_sum_3_6_3_6_3_6.yaml`
+```bash
+# use configs/benchmarks/rgym/decimal_chain_sum_3_6_3_6_3_6.yaml
+benchmarks=rgym_decimal_chain_sum_3_6_3_6_3_6
 model_name=Qwen3/Qwen3-1.7B-Base
 port=8000
+
 uv run src/eval_model.py --benchmarks ${benchmarks} --model_name ${model_name} --vllm_port ${port}
 ```
 

@@ -69,7 +69,7 @@ For more details, please refer to [Mixup class](src/data/base.py)
 
 ## Example pipeline
 
-Under `scripts` directory, we provide example scripts for reproducing our results
+Under `scripts` directory, we provide example scripts for reproducing our results.
 Details can be found [here](scripts/README.md)
 
 

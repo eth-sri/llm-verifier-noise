@@ -42,14 +42,14 @@ for config in "${config_files[@]}"; do
         continue
     fi
 
-    # accelerate launch \
-    #     --config_file configs/accelerate/single_node_four.yaml \
-    #     src/train_model.py \
-    #     --config "$config" \
-    #     --override \
-    #         training_args.per_device_train_batch_size=8 \
-    #         training_args.gradient_accumulation_steps=8 \
-    #         training_args.max_steps=500 \
-    #         training_args.save_steps=500 \
-    #         training_args.lr_scheduler_type="cosine"
+    accelerate launch \
+        --config_file configs/accelerate/single_node_four.yaml \
+        src/train_model.py \
+        --config "$config" \
+        --override \
+            training_args.per_device_train_batch_size=8 \
+            training_args.gradient_accumulation_steps=8 \
+            training_args.max_steps=500 \
+            training_args.save_steps=500 \
+            training_args.lr_scheduler_type="cosine"
 done

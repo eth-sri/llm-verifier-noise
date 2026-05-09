@@ -116,10 +116,13 @@ uv run src/eval_model.py --benchmarks ${benchmarks} --model_name ${model_name} -
 Coming soon on Arxiv
 
 ```bib
-@misc{egashiradelay,
+@misc{egashira2026delay,
   title={Delay, Plateau, or Collapse: Evaluating the Impact of Systematic Verification Error on RLVR},
-  author={Egashira, Kazuki and Vero, Mark and Dekoninck, Jasper and Dorner, Florian E and Staab, Robin and Vechev, Martin},
-  year         = {2026},
-  url          = {https://www.sri.inf.ethz.ch/publications/egashira2026delay}
+  author={Egashira, Kazuki and Vero, Mark and Dekoninck, Jasper and Dorner, Florian E. and Staab, Robin and Vechev, Martin},
+  year={2026},
+  eprint={2605.02909},
+  archivePrefix={arXiv},
+  primaryClass={cs.LG},
+  url={https://arxiv.org/abs/2605.02909}
 }
 ```

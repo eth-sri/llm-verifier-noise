@@ -4,6 +4,9 @@
 
 We study the impact of verification errors on Reinforcement Learning with Verifiable Rewards (RLVR), with a particular focus on *systematic errors*, where the verifier's decision can be consistently wrong given a property, which introduces a risk of models learning unwanted consistent behavior from a structurally incorrect reward signal.
 
+For more technical detals, checkout [our paper](https://arxiv.org/abs/2605.02909):
+
+
 ## Getting started
 
 with uv:
@@ -112,8 +115,6 @@ uv run src/eval_model.py --benchmarks ${benchmarks} --model_name ${model_name} -
 ```
 
 ## Citation
-
-Coming soon on Arxiv
 
 ```bib
 @misc{egashira2026delay,

@@ -1,4 +1,4 @@
-# [COLM 2026] Delay, Plateau, or Collapse: Evaluating the Impact of <br>Systematic Verification Error on RLVR <a href="https://www.sri.inf.ethz.ch/"><img width="100" alt="SRI logo" align="right" src="http://safeai.ethz.ch/img/sri-logo.svg"></a>
+# [COLM 2026] Delay, Plateau, or Collapse: Evaluating the Impact of Systematic Verification Error on RLVR <a href="https://www.sri.inf.ethz.ch/"><img width="100" alt="SRI logo" align="right" src="http://safeai.ethz.ch/img/sri-logo.svg"></a>
 
 ## Overview
 

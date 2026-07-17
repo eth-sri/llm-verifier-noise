@@ -1,6 +1,11 @@
-# Delay, Plateau, or Collapse: Evaluating the Impact of <br>Systematic Verification Error on RLVR <a href="https://www.sri.inf.ethz.ch/"><img width="100" alt="SRI logo" align="right" src="http://safeai.ethz.ch/img/sri-logo.svg"></a>
+# [COLM 2026] Delay, Plateau, or Collapse: Evaluating the Impact of <br>Systematic Verification Error on RLVR <a href="https://www.sri.inf.ethz.ch/"><img width="100" alt="SRI logo" align="right" src="http://safeai.ethz.ch/img/sri-logo.svg"></a>
 
 ## Overview
+
+<figure>
+    <img src="assets/teaser.png" width="100%" height="100%" alt='Figure 1'>
+    <!-- <figcaption><strong>If any</strong> If any</figcaption> -->
+</figure>
 
 We study the impact of verification errors on Reinforcement Learning with Verifiable Rewards (RLVR), with a particular focus on *systematic errors*, where the verifier's decision can be consistently wrong given a property, which introduces a risk of models learning unwanted consistent behavior from a structurally incorrect reward signal.
 
@@ -117,13 +122,11 @@ uv run src/eval_model.py --benchmarks ${benchmarks} --model_name ${model_name} -
 ## Citation
 
 ```bib
-@misc{egashira2026delay,
-  title={Delay, Plateau, or Collapse: Evaluating the Impact of Systematic Verification Error on RLVR},
-  author={Egashira, Kazuki and Vero, Mark and Dekoninck, Jasper and Dorner, Florian E. and Staab, Robin and Vechev, Martin},
-  year={2026},
-  eprint={2605.02909},
-  archivePrefix={arXiv},
-  primaryClass={cs.LG},
-  url={https://arxiv.org/abs/2605.02909}
+@inproceedings{egashira2026delay,
+  author    = {Kazuki Egashira and Mark Vero and Jasper Dekoninck and
+               Florian E. Dorner and Robin Staab and Martin Vechev},
+  title     = {Delay, Plateau, or Collapse: Evaluating the Impact of Systematic Verification Error on RLVR},
+  booktitle = {Proceedings of the Conference on Language Modeling (COLM)},
+  year      = {2026}
 }
 ```
